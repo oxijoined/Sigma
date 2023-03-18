@@ -110,6 +110,7 @@ function handleKeyPress(event) {
     currentSeq = sequences.find(seq => seq[currentPos] === keyPressed);
     if (!currentSeq) {
       currentPos = 0;
+      currentSeq = null
       return;
     }
   }
