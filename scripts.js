@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.getElementById("cube").appendChild(renderer.domElement);
 
-  const geometry = new THREE.IcosahedronGeometry();
+  const geometry = new THREE.OctahedronGeometry(0.7,4);
   const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
   const cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
