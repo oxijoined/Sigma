@@ -117,7 +117,7 @@ function handleKeyPress(event) {
   if (keyPressed === currentSeq[currentPos]) {
     currentPos++;
     if (currentPos === currentSeq.length) {
-      window.open('https://youtu.be/pd7_MGAiD6c', '_blank');
+      window.open('https://youtu.be/pd7_MGAiD6c?t=15', '_blank');
       currentPos = 0;
       currentSeq = null;
     }
