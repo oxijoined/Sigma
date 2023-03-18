@@ -99,3 +99,31 @@ function draw() {
 }
 
 setInterval(draw, 25);
+
+const sequences = [['z', 'x', 'c'], ['я', 'ч', 'с']];
+let currentPos = 0;
+let currentSeq = null;
+
+function handleKeyPress(event) {
+  const keyPressed = event.key.toLowerCase();
+  if (currentSeq === null) {
+    currentSeq = sequences.find(seq => seq[currentPos] === keyPressed);
+    if (!currentSeq) {
+      currentPos = 0;
+      return;
+    }
+  }
+  if (keyPressed === currentSeq[currentPos]) {
+    currentPos++;
+    if (currentPos === currentSeq.length) {
+      window.open('https://youtu.be/pd7_MGAiD6c', '_blank');
+      currentPos = 0;
+      currentSeq = null;
+    }
+  } else {
+    currentPos = 0;
+    currentSeq = null;
+  }
+}
+
+document.addEventListener('keydown', handleKeyPress);
