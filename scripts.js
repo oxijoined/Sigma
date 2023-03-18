@@ -180,7 +180,10 @@ clickableSpan.addEventListener('contextmenu', handleClickPKM);
 document.querySelectorAll('.parallax-card').forEach(card => {
   card.addEventListener('contextmenu', (event) => {
     event.preventDefault();
-    window.location.href = 'https://youtu.be/AVpVNExalJI?t=12'
+    const url = event.currentTarget.dataset.href_;
+    if (url) {
+      window.open(url, '_blank');
+    }
   });
 });
 
