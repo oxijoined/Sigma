@@ -161,3 +161,17 @@ function handleClick(event) {
 }
 
 document.addEventListener('keydown', handleClick);
+const clickableSpan = document.getElementById('heart');
+
+function handleClick(event) {
+  window.location.href = 'https://youtu.be/O68czhShwvw?t=33'
+}
+
+clickableSpan.addEventListener('click', handleClick);
+
+document.querySelectorAll('.parallax-card').forEach(card => {
+  card.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+    window.location.href = 'https://youtu.be/AVpVNExalJI?t=12'
+  });
+});
