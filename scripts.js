@@ -100,34 +100,6 @@ function draw() {
 
 setInterval(draw, 25);
 
-const sequences = [['z', 'x', 'c'], ['я', 'ч', 'с']];
-let currentPos = 0;
-let currentSeq = null;
-
-function handleKeyPress(event) {
-  const keyPressed = event.key.toLowerCase();
-  if (currentSeq === null) {
-    currentSeq = sequences.find(seq => seq[currentPos] === keyPressed);
-    if (!currentSeq) {
-      currentPos = 0;
-      currentSeq = null
-      return;
-    }
-  }
-  if (keyPressed === currentSeq[currentPos]) {
-    currentPos++;
-    if (currentPos === currentSeq.length) {
-      window.open('https://youtu.be/pd7_MGAiD6c?t=15', '_blank');
-      currentPos = 0;
-      currentSeq = null;
-    }
-  } else {
-    currentPos = 0;
-    currentSeq = null;
-  }
-}
-
-document.addEventListener('keydown', handleKeyPress);
 function generateRandomString(length) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -144,4 +116,30 @@ function generateRandomString(length) {
   }
   
   setInterval(updateTitle, 50);
+  
+  const shortcuts = {
+    'zxc': 'https://www.youtube.com/watch?v=pd7_MGAiD6c&t=15s',
+    'pups': 'https://youtu.be/ShKff5l6bCs?t=70',
+    'okcu': 'https://youtu.be/XAAoiV37X7c?t=46',
+    'tyagi' : 'https://www.youtube.com/watch?v=r2Konb8WU-8',
+    'bebra': 'https://www.youtube.com/watch?v=rUxoYZm32kw',
+    'snus': 'https://nicpacker.ru/',
+  };
+  
+  let currentKeys = '';
+  
+  function handleKeyPress(event) {
+    const keyPressed = event.key.toLowerCase();
+    currentKeys += keyPressed;
+  
+    if (shortcuts.hasOwnProperty(currentKeys)) {
+      const url = shortcuts[currentKeys];
+      window.open(url, '_blank');
+      currentKeys = '';
+    } else if (!Object.keys(shortcuts).some(k => k.startsWith(currentKeys))) {
+      currentKeys = '';
+    }
+  }
+  
+  document.addEventListener('keydown', handleKeyPress);
   
