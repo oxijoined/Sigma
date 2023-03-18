@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     app.classList.remove("hidden")
   };
 
-  const minimumLoaderTime = 1000;
+  const minimumLoaderTime = 3300;
   const startTime = new Date().getTime();
 
   window.addEventListener("load", () => {
