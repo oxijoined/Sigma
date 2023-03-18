@@ -29,11 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const showApp = () => {
         loader.classList.add("hidden");
-        setTimeout(() => {
-            loader.style.display = "none";
-            app.classList.remove("hidden")
-            app.classList.add("shown");
-        }, 500);
+        app.classList.remove("hidden")
     };
 
     const minimumLoaderTime = 1000;
