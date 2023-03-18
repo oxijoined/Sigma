@@ -142,11 +142,12 @@ function handleKeyPress(event) {
 }
 
 document.addEventListener('keydown', handleKeyPress);
+
 const scoreDisplay = document.getElementById('bebra');
 let score = 0;
 let showScore = false;
 
-function handleClick(event) {
+function handleClickSpace(event) {
   if (event.keyCode === 32) {
     score++;
     if (!showScore) {
@@ -160,14 +161,21 @@ function handleClick(event) {
   }
 }
 
-document.addEventListener('keydown', handleClick);
+document.addEventListener('keydown', handleClickSpace);
 const clickableSpan = document.getElementById('heart');
 
-function handleClick(event) {
+function handleClickLKMHEART(event) {
   window.location.href = 'https://youtu.be/O68czhShwvw?t=33'
 }
 
-clickableSpan.addEventListener('click', handleClick);
+clickableSpan.addEventListener('click', handleClickLKMHEART);
+
+function handleClickPKM(event) {
+  event.preventDefault();
+  window.location.href = 'https://youtu.be/j5cWjEFp1O4'
+}
+
+clickableSpan.addEventListener('contextmenu', handleClickPKM);
 
 document.querySelectorAll('.parallax-card').forEach(card => {
   card.addEventListener('contextmenu', (event) => {
@@ -175,3 +183,4 @@ document.querySelectorAll('.parallax-card').forEach(card => {
     window.location.href = 'https://youtu.be/AVpVNExalJI?t=12'
   });
 });
+
